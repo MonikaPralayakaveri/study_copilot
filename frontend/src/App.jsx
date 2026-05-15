@@ -8,7 +8,7 @@ function App() {
   // Stores loading state
   const [loading, setLoading] = useState(false);  
 
-  // Stores AI answer
+  // Stores AI message
   const [messages, setMessages] = useState([]);
 
 
@@ -41,6 +41,12 @@ function App() {
 
     // Convert response into JS object
     const data = await response.json();
+
+    console.log("FULL DATA:");
+    console.log(data);
+
+    console.log("ANSWER:");
+    console.log(data.answer);
 
 
     console.log("JSON data received:");
@@ -139,7 +145,7 @@ function App() {
           ))
         }
 
-        <p>{answer}</p>
+
 
       </div>
 
