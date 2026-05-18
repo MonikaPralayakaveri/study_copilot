@@ -130,11 +130,25 @@ function App() {
           marginLeft: "10px",
           padding: "10px"
         }}
+
       >
         Ask AI
       </button>
       {loading && <p>AI is thinking...</p>}
 
+      <button
+        onClick = {() => {
+          console.log("CLEAR CHAT CLICKED");
+          setMessages([]);
+        }}
+
+        style={{
+          marginLeft: "10px",
+          padding: "10px"
+        }}
+      >
+        Clear Chat
+      </button>
 
       <div style={{ marginTop: "30px" }}>
 
