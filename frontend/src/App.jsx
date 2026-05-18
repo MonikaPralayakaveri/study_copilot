@@ -101,7 +101,20 @@ function App() {
           setQuestion(e.target.value);
         }}
 
+        onKeyDown={(e) => {
+          console.log("Key pressed:");
+          console.log(e.key);
 
+          //If Enter key is pressed, trigger askAI function
+          if (e.key === "Enter") {
+
+            console.log("Enter Detected - Triggering askAI function...");
+
+            askAI();
+          }
+
+        }}
+        
         style={{
           width: "300px",
           padding: "10px"
