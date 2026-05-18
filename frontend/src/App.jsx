@@ -67,6 +67,8 @@ function App() {
         answer: data.answer // Add new question-answer pair
       }
     ]);
+    setQuestion(""); // Clear input field
+
     //AI Request Flow finished
     setLoading(false);
 
@@ -106,7 +108,7 @@ function App() {
           console.log(e.key);
 
           //If Enter key is pressed, trigger askAI function
-          if (e.key === "Enter") {
+          if (e.key === "Enter" && question.trim() !== "") {
 
             console.log("Enter Detected - Triggering askAI function...");
 
@@ -114,7 +116,7 @@ function App() {
           }
 
         }}
-        
+
         style={{
           width: "300px",
           padding: "10px"
