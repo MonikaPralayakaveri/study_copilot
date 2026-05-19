@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ReactMarkdown from "react-markdown";
 
 function App() {
   
@@ -215,7 +216,9 @@ function App() {
                   max-w-[70%]
                 "
               >
-                {msg.answer}
+                <ReactMarkdown>
+                  {msg.answer}
+                </ReactMarkdown>
               </div>
 
             </div>
