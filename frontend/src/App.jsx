@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 
 function App() {
@@ -11,6 +11,16 @@ function App() {
 
   // Stores AI message
   const [messages, setMessages] = useState([]);
+  // Reference to the end of the chat history for auto-scrolling(POINTER OF bottom chat)
+  const chatEndRef = useRef(null);
+
+  useEffect(() => {
+
+    chatEndRef.current?.scrollIntoView({
+      behavior: "smooth"
+    });
+
+  }, [messages]);
 
 
   // Runs when button clicked
@@ -225,6 +235,8 @@ function App() {
 
           </div>
         ))}
+        {/* Invisible scroll target */}
+        <div ref={chatEndRef}></div>
       </div>
     </div>
   );
