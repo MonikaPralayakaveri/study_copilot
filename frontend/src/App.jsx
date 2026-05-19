@@ -78,9 +78,11 @@ function App() {
 
   return (
 
-    <div style={{ padding: "40px" }}>
+    <div className="min-h-screen bg-gray-100 p-10">
 
-      <h1>AI Study Copilot</h1>
+    <h1 className="text-5xl font-bold text-blue-600 mb-8">
+      AI Study Copilot
+    </h1>
 
 
       <input
@@ -117,20 +119,33 @@ function App() {
 
         }}
 
-        style={{
-          width: "300px",
-          padding: "10px"
-        }}
+        className="
+          border
+          border-gray-400
+          rounded-xl
+          px-4
+          py-3
+          w-[350px]
+          shadow-sm
+          focus:outline-none
+          focus:ring-2
+          focus:ring-blue-400
+        "
       />
 
 
       <button
         onClick={askAI}
-        style={{
-          marginLeft: "10px",
-          padding: "10px"
-        }}
-
+        className="
+          ml-3
+          bg-blue-500
+          hover:bg-blue-600
+          text-white
+          px-5
+          py-3
+          rounded-xl
+          shadow-md
+        "
       >
         Ask AI
       </button>
@@ -142,42 +157,72 @@ function App() {
           setMessages([]);
         }}
 
-        style={{
-          marginLeft: "10px",
-          padding: "10px"
-        }}
+        className="
+          ml-3
+          bg-red-500
+          hover:bg-red-600
+          text-white
+          px-5
+          py-3
+          rounded-xl
+          shadow-md
+        "
       >
         Clear Chat
       </button>
 
       <div style={{ marginTop: "30px" }}>
 
-        <h2>Chat History</h2>
+        <h2 className="text-2xl font-semibold mb-5">
+          Chat History
+        </h2>
         {
           messages.map((msg, index) => ( //loop through messages and display them
-            <div
-              key={index}
-              style={{
-                marginBottom : "20px",
-                padding: "10px",
-                border: "1px solid grey"
-              }}
-            >
-              <p>
-                <strong>Q:</strong> {msg.question}
-              </p>
+          <div key={index} className="mb-6 max-w-3xl">
+            {/* for user message, justify to right */}
+            {/* USER MESSAGE */}
 
-              <p>
-                <strong>AI:</strong> {msg.answer}
-              </p>
+            <div className="flex justify-end mb-2"> 
+
+              <div
+                className="
+                  bg-blue-500
+                  text-white
+                  px-5
+                  py-3
+                  rounded-2xl
+                  shadow-md
+                  max-w-[70%]
+                "
+              >
+                {msg.question}
+              </div>
+
             </div>
-          ))
-        }
 
+            {/* for ai message, justify to left */}
+            {/* AI MESSAGE */}
+            
+            <div className="flex justify-start">
 
+              <div
+                className="
+                  bg-white
+                  px-5
+                  py-3
+                  rounded-2xl
+                  shadow-md
+                  max-w-[70%]
+                "
+              >
+                {msg.answer}
+              </div>
 
+            </div>
+
+          </div>
+        ))}
       </div>
-
     </div>
   );
 }
